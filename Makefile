@@ -1,4 +1,4 @@
-image=docker.pkg.github.com/nais/ipblocks-sync/ipblocks-sync:0.6
+image=docker.pkg.github.com/nais/ipblocks-sync/ipblocks-sync:0.7
 
 build:
 	docker build -t ${image} .
