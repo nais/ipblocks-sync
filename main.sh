@@ -9,7 +9,7 @@ while true; do
   for ns in $(kubectl get namespace -o jsonpath="{ range .items[?(.metadata.annotations['rbac-sync\.nais\.io/group-name'])] }{.metadata.name } { end }"); do
     echo "----- $ns -----"
     ports=$(kubectl get app -n "$ns" -o json | jq -r -c '.items[].spec.port' | grep -v null | sort -u)
-    if [ ${#ports} -le 2 ]; then
+    if [ ${#ports} -le 1 ]; then
       echo "No applications configured in namespace [$ns]"
       continue
     fi
