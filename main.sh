@@ -21,6 +21,9 @@ spec:
     - operation:
         ports:
         - "15090"
+        - "8080"
+        - "9090"
+        - "4242"
   selector: {}
 EOF
     kubectl apply -f "$f"
