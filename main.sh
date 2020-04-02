@@ -40,13 +40,12 @@ EOF
       echo "$port" | awk '{ printf("        - \"%s\"\n", $1)}' >> "$f"
     done
     echo "  selector: {}" >> "$f"
-    #kubectl apply -f "$f"
     echo "Found deployments with prometheus scraping true in namespace $ns."
 		cat "$f"
+    kubectl apply -f "$f"
   done
 
   echo "Sleeping for $sleep_time secs."
   sleep $sleep_time
-  break
 done
 
